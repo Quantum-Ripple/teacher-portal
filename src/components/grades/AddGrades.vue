@@ -1,11 +1,11 @@
 <template>
   <div class="max-w-7xl mx-auto p-4 sm:p-8 space-y-6 text-gray-800 text-sm sm:text-base">
-    <!-- Title -->
+    
     <h2 class="text-lg sm:text-2xl font-bold mb-2 text-center sm:text-left text-gray-800">
       Enter Grades
     </h2>
 
-    <!-- Exam Selector -->
+    
     <div class="flex flex-wrap items-center gap-3">
       <label class="font-semibold text-gray-700">Exam:</label>
       <select
@@ -19,7 +19,7 @@
       </select>
     </div>
 
-    <!-- Add Subject -->
+    
     <div class="flex flex-wrap gap-3 items-center bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
       <select
         v-model="newSubject"
@@ -38,9 +38,9 @@
       </button>
     </div>
 
-    <!-- Grade Entry Table -->
+    
     <div class="border border-gray-200 rounded-lg shadow-md overflow-hidden">
-      <!-- Scrollable Table Wrapper for Desktop -->
+      
       <div class="hidden sm:block overflow-x-auto">
         <table class="min-w-full border-collapse text-sm md:text-base">
           <thead class="bg-gray-100 text-gray-700 uppercase text-sm sticky top-0">
@@ -92,7 +92,7 @@
         </table>
       </div>
 
-      <!-- Mobile Layout -->
+      
       <div class="sm:hidden p-3 space-y-4">
         <div
           v-for="row in students"
@@ -120,7 +120,7 @@
       </div>
     </div>
 
-    <!-- Save Section -->
+    
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-4">
       <button
         @click="saveGrades"

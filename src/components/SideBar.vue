@@ -1,14 +1,14 @@
 <template>
   <aside class="w-64 h-screen bg-white border-r flex flex-col">
-    <!-- Header -->
+    
     <div class="h-16 flex items-center justify-center border-b">
       <span class="text-lg font-semibold">{{ title }}</span>
     </div>
 
-    <!-- Navigation -->
+    
     <nav class="flex-1 overflow-y-auto p-4 space-y-2">
       <div v-for="item in items" :key="item.label">
-        <!-- Parent Item -->
+        
         <div>
           <button
             v-if="item.children"
@@ -32,7 +32,7 @@
             </svg>
           </button>
 
-          <!-- Regular Link (no children) -->
+          
           <router-link
             v-else
             :to="item.route"
@@ -45,7 +45,7 @@
           </router-link>
         </div>
 
-        <!-- Sub-items -->
+        
         <transition name="slide">
           <div
             v-if="item.children && openSubmenu === item.label"
@@ -66,7 +66,7 @@
       </div>
     </nav>
 
-    <!-- Footer -->
+    
     <div class="border-t p-4">
       <button
         class="w-full flex items-center justify-center px-3 py-2 rounded-md hover:bg-gray-100"

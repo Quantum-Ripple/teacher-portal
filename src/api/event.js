@@ -1,6 +1,6 @@
 import api from './Axios';
 
-//announcements API calls
+
 export const fetchEvents = async () => {
   try {
     const response = await api.get("/announcements");
@@ -30,7 +30,3 @@ export const viewEvent = async (eventId) => {
     console.error("Error viewing event:", error);
     throw error;
     }};
-
-
-
-    

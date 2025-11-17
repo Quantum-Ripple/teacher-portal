@@ -1,6 +1,6 @@
 <template>
   <div class="p-4 sm:p-6 bg-gray-50 min-h-screen">
-    <!-- Header -->
+    
     <div
       class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 space-y-3 sm:space-y-0"
     >
@@ -13,7 +13,7 @@
       
     </div>
 
-    <!-- Search Bar -->
+    
     <div class="mb-6 flex justify-center sm:justify-start">
       <input
         type="text"
@@ -23,7 +23,7 @@
       />
     </div>
 
-    <!-- Table View (Desktop/Tablet) -->
+    
     <div class="hidden sm:block overflow-x-auto bg-white rounded-lg shadow-md">
       <table
         class="w-full text-left border-collapse min-w-[600px] text-sm md:text-base"
@@ -74,7 +74,7 @@
       </table>
     </div>
 
-    <!-- Card View (Mobile) -->
+    
     <div class="sm:hidden space-y-4">
       <div
         v-for="student in filteredStudents"
@@ -157,7 +157,7 @@ function viewStudent(student) {
 </script>
 
 <style scoped>
-/* Optional subtle scroll behavior for table */
+
 ::-webkit-scrollbar {
   height: 8px;
 }

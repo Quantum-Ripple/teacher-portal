@@ -18,7 +18,7 @@
     </div>
 
     <div v-else>
-      <!-- Show message if no attendance records -->
+      
       <div
         v-if="noRecords"
         class="text-center text-gray-500 italic mt-6"
@@ -65,7 +65,7 @@ const today = new Date().toISOString().split("T")[0];
 const classLevel = ref("");
 const stream = ref("");
 
-// ✅ Computed property to check if all values are 0
+
 const noRecords = computed(() =>
   Object.values(attendanceSummary.value).every((v) => v === 0)
 );
@@ -143,9 +143,9 @@ const loadAttendance = async () => {
     });
     calculateSummary(res);
 
-    // 🟢 wait for DOM to fully update before creating chart
+    
     await nextTick();
-    setTimeout(createChart, 100); // short delay ensures <canvas> is ready
+    setTimeout(createChart, 100); 
   } catch (err) {
     console.error("Failed to load attendance summary:", err);
   } finally {

@@ -30,10 +30,10 @@
       </button>
     </form>
 
-    <!-- Success -->
+    
     <div v-if="success" class="text-green-600 font-semibold">Exam Created ✅</div>
 
-    <!-- Error -->
+    
     <div v-if="error" class="text-red-600 font-semibold">{{ error }}</div>
 
   </div>
@@ -71,9 +71,9 @@ const handleSubmit = async () => {
 
     success.value = true;
 
-    // redirect back to ListGrades or Exams page if you want after 1 sec
+    
     setTimeout(() => {
-      window.location.href = "/dashboard/grades"; // update with your route name
+      window.location.href = "/dashboard/grades"; 
     }, 1000);
   } catch (err) {
     error.value = err.response?.data?.detail || "Failed to create exam";

@@ -1,12 +1,12 @@
 <template>
   <div class="p-6 space-y-6 bg-white rounded-lg shadow">
-    <!-- Header -->
+    
     <div class="flex justify-between items-center">
       <h2 class="text-2xl font-bold text-gray-800">
         Class Statistics <span v-if="classLevel && stream">- {{ classLevel }} {{ stream }}</span>
       </h2>
 
-      <!-- Notification Icon -->
+      
       <div class="relative">
         <button
           @click="toggleNotification"
@@ -21,7 +21,7 @@
           >
         </button>
 
-        <!-- Notification Popup -->
+        
         <div
           v-if="showNotification && latestAnnouncement"
           class="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg p-3 z-10"
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <!-- Cards -->
+    
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
       <div class="p-5 bg-blue-100 rounded-lg text-center shadow-sm">
         <p class="text-gray-700 font-medium">Total Students</p>
@@ -51,12 +51,12 @@
       </div>
     </div>
 
-    <!-- Gender Pie Chart -->
+    
     <div class="flex justify-center items-center mt-6">
       <canvas ref="genderChartRef" width="300" height="300"></canvas>
     </div>
 
-    <!-- No Students Message -->
+    
     <div v-if="stats.total === 0" class="text-center text-gray-500 mt-4">
       No students found for this class.
     </div>
@@ -84,14 +84,14 @@ const showNotification = ref(false);
 const classLevel = ref("");
 const stream = ref("");
 
-// 🧠 Get user class/stream from local storage
+
 const getStoredClassInfo = () => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   classLevel.value = user.class_level || "";
   stream.value = user.stream || "";
 };
 
-// 📊 Create gender pie chart
+
 const createChart = () => {
   if (!genderChartRef.value) return;
   if (chartInstance) chartInstance.destroy();
@@ -121,7 +121,7 @@ const createChart = () => {
   });
 };
 
-// 👦🏽👧🏽 Load student stats
+
 const loadStats = async () => {
   try {
     const res = await studentsApi.filter(classLevel.value, stream.value);
@@ -136,12 +136,12 @@ const loadStats = async () => {
   }
 };
 
-// 🔔 Load latest announcement
+
 const loadAnnouncement = async () => {
   try {
     const res = await eventApi.fetchEvents();
     if (res.length > 0) {
-      // Sort by newest
+      
       latestAnnouncement.value = res.sort(
         (a, b) => new Date(b.created_at) - new Date(a.created_at)
       )[0];
@@ -163,7 +163,7 @@ const formatDate = (dateStr) => {
   });
 };
 
-// 🪄 Lifecycle
+
 onMounted(async () => {
   getStoredClassInfo();
   await Promise.all([loadStats(), loadAnnouncement()]);

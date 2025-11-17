@@ -2,7 +2,7 @@
   <div class="p-6 space-y-6">
     <h2 class="text-2xl font-bold mb-4">Mark Attendance</h2>
 
-    <!-- Class/Stream Info -->
+    
     <div class="flex space-x-4 items-center mb-4">
       <span class="font-semibold">Class: {{ classLevel }}</span>
       <span class="font-semibold">Stream: {{ stream }}</span>
@@ -20,7 +20,7 @@
     
   
 
-    <!-- Students List -->
+    
     <div class="overflow-x-auto">
       <table class="w-full border text-sm">
         <thead class="bg-gray-100">
@@ -52,7 +52,7 @@
       </table>
     </div>
 
-    <!-- Submit Button -->
+    
     <div class="mt-4">
       <button @click="submitAttendance" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
         Submit Attendance
@@ -65,7 +65,7 @@
 import studentApi from "../../api/Students";
 import * as attendanceApi from "../../api/attendance";
 
-// Custom SVG icons
+
 import PresentIcon from "../icons/PresentIcon.vue";
 import AbsentIcon from "../icons/AbsentIcon.vue";
 import LateIcon from "../icons/LateIcon.vue";
@@ -79,7 +79,7 @@ export default {
       stream: "",
       attendanceMap: {},
 
-      // Define status options with icons and active colors
+      
       statusOptions: [
         { value: "PRESENT", label: "Present", icon: PresentIcon, activeClass: "bg-green-500" },
         { value: "ABSENT", label: "Absent", icon: AbsentIcon, activeClass: "bg-red-500" },
@@ -99,7 +99,7 @@ export default {
     async loadStudents() {
       try {
         this.students = await studentApi.filter(this.classLevel, this.stream);
-        // Initialize all students as PRESENT by default
+        
         this.students.forEach(s => {
           this.$set(this.attendanceMap, s.id, "PRESENT");
         });

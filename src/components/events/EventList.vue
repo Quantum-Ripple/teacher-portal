@@ -1,6 +1,6 @@
 <template>
   <div class="p-6">
-    <!-- Header -->
+    
     <div class="flex justify-between items-center mb-6">
       <h2 class="text-2xl font-semibold text-gray-800">Announcements</h2>
       <button
@@ -11,20 +11,20 @@
       </button>
     </div>
 
-    <!-- Loading state -->
+    
     <div v-if="loading" class="text-gray-500">Loading announcements...</div>
 
-    <!-- Error state -->
+    
     <div v-else-if="error" class="text-red-600">
       Failed to load announcements. Please try again later.
     </div>
 
-    <!-- No data -->
+    
     <div v-else-if="events.length === 0" class="text-gray-500">
       No announcements available.
     </div>
 
-    <!-- Announcement cards -->
+    
     <div
       v-else
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -71,14 +71,14 @@ const loading = ref(false)
 const error = ref(null)
 const router = useRouter()
 
-// Fetch announcements
+
 async function getNotifications() {
   loading.value = true
   error.value = null
   try {
     const response = await eventApi.fetchEvents()
 
-    // Sort announcements by date (newest first)
+    
     events.value = response.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
   } catch (err) {
     console.error('Failed to fetch announcements:', err)
@@ -88,7 +88,7 @@ async function getNotifications() {
   }
 }
 
-// Format date nicely
+
 function formatDate(dateString) {
   const date = new Date(dateString)
   return date.toLocaleString('en-GB', {
@@ -97,7 +97,7 @@ function formatDate(dateString) {
   })
 }
 
-// Go to details page
+
 function viewDetails(id) {
   router.push({ name: 'EventDetail', params: { id } })
 }

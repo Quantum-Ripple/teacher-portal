@@ -4,7 +4,7 @@
       Attendance Records
     </h2>
 
-    <!-- Date Filters & Export -->
+    
     <div class="flex flex-wrap gap-2 sm:gap-3 items-center">
       <select v-model="range" class="border px-2 py-2 rounded w-full sm:w-auto">
         <option value="daily">Daily</option>
@@ -56,7 +56,7 @@
       </button>
     </div>
 
-    <!-- Search -->
+    
     <input
       type="text"
       v-model="search"
@@ -64,7 +64,7 @@
       placeholder="Search student or status..."
     />
 
-    <!-- Attendance Table -->
+    
     <div class="overflow-x-auto mt-3">
       <table class="w-full border text-xs sm:text-sm md:text-base">
         <thead class="bg-gray-100">
@@ -103,7 +103,7 @@ import AbsentIcon from "../icons/AbsentIcon.vue";
 import DocumentIcon from "../icons/UnavailableIcon.vue";
 import LateIcon from "../icons/LateIcon.vue";
 
-// Excel export
+
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 

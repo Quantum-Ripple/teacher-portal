@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import Auth from '../api/Auth' // keep your existing Auth helper
+import Auth from '../api/Auth' 
 
 const router = useRouter()
 const email = ref('')
@@ -9,7 +9,7 @@ const password = ref('')
 const error = ref('')
 const loading = ref(false)
 
-// Allowed roles for this portal
+
 const ALLOWED_ROLES = ['teacher', 'admin']
 
 const handleLogin = async () => {
@@ -17,23 +17,23 @@ const handleLogin = async () => {
   loading.value = true
 
   try {
-    // Auth.login should succeed only for valid credentials.
-    // Many Auth.login implementations store token/user in localStorage.
+    
+    
     await Auth.login(email.value, password.value)
 
-    // Try to read the user (either Auth.login stored it, or your app already has it)
+    
     const stored = localStorage.getItem('user')
     const user = stored ? JSON.parse(stored) : null
     const token = localStorage.getItem('token')
 
-    // If Auth.login returned user directly (rare), handle that too:
-    // (Uncomment if your Auth.login returns { token, user })
-    // const resp = await Auth.login(email.value, password.value)
-    // const user = resp?.user
+    
+    
+    
+    
 
     if (!user || !user.role) {
-      // No user returned/stored — treat as login failure
-      // Clear anything leftover
+      
+      
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       error.value = 'Login failed (no user info). Try again.'
@@ -41,9 +41,9 @@ const handleLogin = async () => {
       return
     }
 
-    // Role check (frontend UX block)
+    
     if (!ALLOWED_ROLES.includes(user.role.toLowerCase())) {
-      // Not allowed to access principal portal: clear auth and show message
+      
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       error.value = 'Your account does not have access to the Teachers portal.'
@@ -51,11 +51,11 @@ const handleLogin = async () => {
       return
     }
 
-    // Allowed — go to principal dashboard
+    
     router.push('/dashboard')
 
   } catch (err) {
-    // Prefer showing more specific messages when available
+    
     if (err?.response?.status === 401) {
       error.value = 'Invalid credentials. Please try again.'
     } else if (err?.response?.status === 403) {
@@ -94,7 +94,5 @@ const handleLogin = async () => {
 </template>
 
 <style scoped>
-/* optional small style */
+
 </style>
-
-

@@ -2,14 +2,14 @@
   <header class="w-full bg-white border-b">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center justify-between">
-        <!-- left: menu + title -->
+        
         <div class="flex items-center space-x-3">
           <button
             class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none"
             aria-label="open menu"
             @click="$emit('menu-toggle')"
           >
-            <!-- simple hamburger icon -->
+            
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -18,7 +18,7 @@
           <span class="text-lg font-semibold" data-testid="app-title">{{ title }}</span>
         </div>
 
-        <!-- right: actions -->
+        
         <nav class="hidden md:flex items-center space-x-3">
 
             <button class="px-3 py-2 rounded-md hover:bg-gray-100">Students</button>
@@ -34,7 +34,7 @@
           </button>
         </nav>
 
-        <!-- mobile actions (right) -->
+        
         <div class="md:hidden">
           <button class="p-2 rounded-md hover:bg-gray-100" @click="$emit('mobile-actions')" aria-label="more">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -1,6 +1,6 @@
 <template>
   <div class="p-6 space-y-6">
-    <!-- Header -->
+    
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
       <div class="flex flex-col sm:flex-row sm:items-center gap-2">
         <label class="text-lg font-semibold mr-2">Select Exam:</label>
@@ -44,12 +44,12 @@
       </div>
     </div>
 
-    <!-- Info / Errors -->
+    
     <div v-if="error" class="text-red-600">{{ error }}</div>
     <div v-if="!selectedExam" class="text-gray-600">Select an exam to view grades.</div>
     <div v-else-if="!isLoading && subjects.length === 0" class="text-gray-500">No grades recorded for this exam yet.</div>
 
-    <!-- Desktop Table -->
+    
     <div class="hidden sm:block border border-gray-300 rounded-lg overflow-x-auto">
       <table class="min-w-full border-collapse text-sm md:text-base">
         <thead>
@@ -73,7 +73,7 @@
       </table>
     </div>
 
-    <!-- Mobile Card Layout -->
+    
     <div class="sm:hidden space-y-4">
       <div v-for="studentName in Object.keys(tableData)" :key="studentName" class="border rounded-lg shadow p-3">
         <h3 class="font-semibold text-base mb-2">{{ studentName }}</h3>

@@ -1,6 +1,6 @@
 <template>
   <div class="p-6 space-y-8">
-    <!-- Header -->
+    
     <div class="flex justify-between items-center">
       <h2 class="text-2xl font-bold text-gray-800">Performance Dashboard</h2>
 
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <!-- Info / Errors -->
+    
     <div v-if="error" class="text-red-600">{{ error }}</div>
     <div v-else-if="isLoading" class="text-gray-500">Loading performance data...</div>
 
@@ -29,7 +29,7 @@
       </div>
 
       <div v-else class="grid gap-6">
-        <!-- Score Distribution Table -->
+        
         <div class="bg-white p-6 rounded-lg shadow">
           <h3 class="text-xl font-semibold mb-4">Score Distribution (Student Averages)</h3>
           <table class="min-w-full border border-gray-300 text-center">
@@ -63,7 +63,7 @@ const error = ref("");
 const scoreDistribution = ref({});
 const noGrades = ref(true);
 
-// --- Sort ranges descending (90–100 → 0–10)
+
 const sortedRanges = computed(() => {
   const ranges = Object.keys(scoreDistribution.value).filter(k => k.includes("-"));
   return ranges.sort((a, b) => {
@@ -78,7 +78,7 @@ const toNum = (v) => {
   return Number.isFinite(n) ? n : 0;
 };
 
-// --- Compute student average distribution
+
 const computeStudentDistributions = (grades) => {
   const byStudent = {};
   grades.forEach((g) => {
@@ -101,14 +101,14 @@ const computeStudentDistributions = (grades) => {
     dist[label] = averages.filter(avg => avg >= min && avg < max).length;
   }
 
-  // Combine 100s into 90–100
+  
   dist["90-100"] += dist["100"] || 0;
   delete dist["100"];
 
   scoreDistribution.value = dist;
 };
 
-// --- Load performance
+
 const loadPerformance = async () => {
   if (!selectedExam.value) return;
   isLoading.value = true;
@@ -133,7 +133,7 @@ const loadPerformance = async () => {
   }
 };
 
-// --- Load exams
+
 const loadExams = async () => {
   try {
     const res = await getExams();

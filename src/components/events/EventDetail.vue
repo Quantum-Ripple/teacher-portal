@@ -27,7 +27,7 @@
     
       </div>
 
-      <!-- success & error messages -->
+      
       <div v-if="successMessage" class="bg-green-100 text-green-700 p-3 rounded mt-4">
         {{ successMessage }}
       </div>
@@ -78,7 +78,7 @@ async function handleDelete() {
     await eventApi.deleteEvent(route.params.id);
     successMessage.value = "Announcement deleted successfully!";
 
-    // redirect after short delay
+    
     setTimeout(() => {
       router.push({ name: "Events" });
     }, 1200);
