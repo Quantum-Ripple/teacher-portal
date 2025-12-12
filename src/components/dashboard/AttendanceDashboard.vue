@@ -1,8 +1,8 @@
 <template>
   <div class="p-6 space-y-6 bg-white rounded-lg shadow">
     <div class="flex justify-between items-center">
-      <h2 class="text-2xl font-bold text-gray-800">
-        Attendance Overview - {{ today }}
+      <h2 class="text-2xl font-bold text-gray-400">
+        Attendance Overview for {{ today }}
       </h2>
 
       <button

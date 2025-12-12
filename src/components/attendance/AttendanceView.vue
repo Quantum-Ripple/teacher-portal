@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-7xl mx-auto p-3 sm:p-6 space-y-6 text-gray-800 text-sm sm:text-base">
-    <h2 class="text-lg sm:text-2xl font-bold mb-4 text-center sm:text-left">
+    <h2 class="text-lg sm:text-2xl font-bold mb-4 text-gray-600 text-center sm:text-left">
       Attendance Records
     </h2>
 

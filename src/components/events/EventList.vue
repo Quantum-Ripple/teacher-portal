@@ -15,14 +15,16 @@
     <div v-if="loading" class="text-gray-500">Loading announcements...</div>
 
     
-    <div v-else-if="error" class="text-red-600">
+    <div v-if="error" class="text-red-600">
       Failed to load announcements. Please try again later.
     </div>
 
-    
-    <div v-else-if="events.length === 0" class="text-gray-500">
+    <div v-if="events.length==0" class="text-gray-500">
       No announcements available.
     </div>
+
+    
+    
 
     
     <div
@@ -58,6 +60,7 @@
         </button>
       </div>
     </div>
+    
   </div>
 </template>
 

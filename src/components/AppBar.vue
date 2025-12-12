@@ -21,11 +21,8 @@
         
         <nav class="hidden md:flex items-center space-x-3">
 
-            <button class="px-3 py-2 rounded-md hover:bg-gray-100">Students</button>
-            <button class="px-3 py-2 rounded-md hover:bg-gray-100">Announcements</button>
-
-          
-          
+          <router-link to="students" class="px-3 py-2 rounded-md hover:bg-gray-100">Students</router-link>
+          <router-link to="announcements" class="px-3 py-2 rounded-md hover:bg-gray-100">Announcements</router-link>
           
           <button class="p-2 rounded-full hover:bg-gray-100" aria-label="profile">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -48,6 +45,9 @@
 </template>
 
 <script setup>
+
+
+
 const props = defineProps({
   title: { type: String, default: 'My App' }
 })

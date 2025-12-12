@@ -2,22 +2,23 @@
   <div class="p-6 space-y-6 bg-white rounded-lg shadow">
     
     <div class="flex justify-between items-center">
-      <h2 class="text-2xl font-bold text-gray-800">
-        Class Statistics <span v-if="classLevel && stream">- {{ classLevel }} {{ stream }}</span>
+      <h2 class="text-2xl font-bold text-gray-400">
+        <span v-if="classLevel && stream">{{ classLevel }} {{ stream }}</span>
       </h2>
 
       
       <div class="relative">
         <button
           @click="toggleNotification"
-          class="relative bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full"
+          class="relative ml-auto"
           title="View latest announcement"
         >
+        🔔
           <i class="fas fa-bell"></i>
           <span
             v-if="latestAnnouncement"
-            class="absolute top-0 right-0 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full"
-            >!</span
+            class="badge"
+            >{{ unreadCount }}</span
           >
         </button>
 
@@ -26,7 +27,7 @@
           v-if="showNotification && latestAnnouncement"
           class="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg p-3 z-10"
         >
-          <p class="font-semibold text-gray-800">📢 {{ latestAnnouncement.title }}</p>
+          <p class="font-semibold text-gray-800">{{ latestAnnouncement.title }}</p>
           <p class="text-sm text-gray-600 mt-1">{{ latestAnnouncement.message }}</p>
           <p class="text-xs text-gray-400 mt-2 text-right">
             {{ formatDate(latestAnnouncement.created_at) }}
@@ -70,6 +71,7 @@ import studentsApi from "../../api/Students.js";
 import * as eventApi from "../../api/event.js";
 
 const genderChartRef = ref(null);
+const unreadCount = ref(0)
 let chartInstance = null;
 
 const stats = ref({
@@ -140,11 +142,13 @@ const loadStats = async () => {
 const loadAnnouncement = async () => {
   try {
     const res = await eventApi.fetchEvents();
+    
     if (res.length > 0) {
       
       latestAnnouncement.value = res.sort(
         (a, b) => new Date(b.created_at) - new Date(a.created_at)
       )[0];
+      unreadCount.value=res.length;
     }
   } catch (err) {
     console.error("Failed to load announcements:", err);
@@ -174,5 +178,15 @@ onMounted(async () => {
 canvas {
   width: 100px;
   height: 320px !important;
+}
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0 6px;
+  font-size: 0.75rem;
 }
 </style>

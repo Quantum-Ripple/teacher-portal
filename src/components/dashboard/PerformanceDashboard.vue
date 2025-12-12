@@ -2,7 +2,7 @@
   <div class="p-6 space-y-8">
     
     <div class="flex justify-between items-center">
-      <h2 class="text-2xl font-bold text-gray-800">Performance Dashboard</h2>
+      <h2 class="text-2xl font-bold text-gray-400">Performance Dashboard</h2>
 
       <div>
         <label class="font-semibold mr-2">Select Exam:</label>
