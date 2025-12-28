@@ -117,8 +117,10 @@ export default {
       const payload = {
         class_level: this.classLevel,
         stream: this.stream,
+        
         records_input
       };
+      console.log(payload);
 
       try {
         await attendanceApi.createAttendanceSession(payload);

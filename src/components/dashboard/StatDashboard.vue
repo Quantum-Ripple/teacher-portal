@@ -13,7 +13,7 @@
           class="relative ml-auto"
           title="View latest announcement"
         >
-        🔔
+        
           <i class="fas fa-bell"></i>
           <span
             v-if="latestAnnouncement"

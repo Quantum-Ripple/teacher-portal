@@ -58,10 +58,7 @@
             <p class="text-gray-800">{{ student.address || 'N/A' }}</p>
           </div>
 
-          <div>
-            <p class="font-medium text-gray-700">School:</p>
-            <p class="text-gray-800">{{ student.school_name }}</p>
-          </div>
+          
           <div>
             <p class="font-medium text-gray-700">Date Joined:</p>
             <p class="text-gray-800">{{ student.date_joined }}</p>

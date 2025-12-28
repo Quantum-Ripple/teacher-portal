@@ -1,4 +1,4 @@
-import api from './axios';
+import api from './Axios';
 
 const NOTES_BASE = '/notes/';
 
@@ -17,7 +17,7 @@ export const getNote = async (noteId) => {
 
 export const listNotes = async () => {
   const response = await api.get(NOTES_BASE);
-  console.log("List Notes Response:", response);
+
   return response.data;
 };
 
@@ -25,3 +25,28 @@ export const deleteNote = async (noteId) => {
   const response = await api.delete(`${NOTES_BASE}${noteId}/`);
   return response.data;
 };
+
+
+
+const API_URL = '/assignments/'
+
+export const postAssignment = async (assignment) => {
+  try {
+    const response = await api.post('/assignments/', assignment)
+    return response.data
+  } catch (error) {
+    console.error('Error saving assignment:', error)
+    throw error
+  }
+}
+
+export const listAssignments = async () => {
+  const response = await api.get(API_URL)
+  return response.data
+}
+
+export const deleteAssignment = async (id) => {
+  const response = await api.delete(`${API_URL}${id}/`)
+  return response.data
+}
+

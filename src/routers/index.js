@@ -18,6 +18,9 @@ import AddGrades from '../components/grades/AddGrades.vue'
 import EventDetail from '../components/events/EventDetail.vue'
 import MarkAttendance from '../components/attendance/MarkAttendance.vue'
 import EditAttendance from '../components/attendance/EditAttendance.vue'
+import AssignmentPage from '../components/lms/AssignmentPage.vue'
+import AssignmentBuilderPage from '../components/lms/AssignmentBuilderPage.vue'
+import ResultsPage from '../components/lms/ResultsPage.vue'
 
 const routes = [
   {
@@ -105,6 +108,21 @@ const routes = [
         path: 'assignments',
         name: 'AssignmentsPage',
         component: AssignmentsPage,
+      },
+      {
+        path: 'assignment',
+        name: 'AssignmentPage',
+        component: AssignmentPage,
+      },
+      {
+        path: 'results',
+        name: 'ResultsPage',
+        component: ResultsPage,
+      },
+      {
+        path: 'create-assignment',
+        name: 'AssignmentBuilder',
+        component: AssignmentBuilderPage
       },
        {
         path: 'performance',

@@ -25,13 +25,13 @@
 import { ref, computed } from 'vue'
 
 import NotesPage from '../components/lms/NotesPage.vue'
-//import AssignmentsPage from './AssignmentsPage.vue'
-//import CatsPage from './CatsPage.vue'
+import AssignmentPage from '../components/lms/AssignmentPage.vue'
+import ResultsPage from '../components/lms/ResultsPage.vue'
 
 const tabs = [
   { key: 'notes', label: 'Notes', component: NotesPage },
-  //{ key: 'assignments', label: 'Assignments', component: AssignmentsPage },
-  //{ key: 'cats', label: 'Cats', component: CatsPage }
+  { key: 'assignments', label: 'Assignments', component: AssignmentPage },
+  { key: 'results',labels: 'Results',component: ResultsPage},
 ]
 
 const activeTab = ref('notes')

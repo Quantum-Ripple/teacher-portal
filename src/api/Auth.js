@@ -11,11 +11,13 @@ export default {
     localStorage.setItem('refresh_token', refresh)
 
     
-    const userResponse = await api.get('users/me/')
+    const userResponse = await api.get('/users/me/')
     const userData = userResponse.data
 
     
     localStorage.setItem('user', JSON.stringify(userData))
+
+    console.log(userData)
 
     return userData
   },

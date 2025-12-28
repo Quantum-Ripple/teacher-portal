@@ -24,7 +24,7 @@
         <thead class="bg-gray-100">
           <tr>
             <th class="border px-2 py-1 text-left">Student</th>
-            <th class="border px-2 py-1 text-left">Admission #</th>
+            <th class="border px-2 py-1 text-left">Admission</th>
             <th class="border px-2 py-1 text-center">Status</th>
           </tr>
         </thead>
