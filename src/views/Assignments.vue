@@ -31,7 +31,7 @@ import ResultsPage from '../components/lms/ResultsPage.vue'
 const tabs = [
   { key: 'notes', label: 'Notes', component: NotesPage },
   { key: 'assignments', label: 'Assignments', component: AssignmentPage },
-  { key: 'results',labels: 'Results',component: ResultsPage},
+  { key: 'results',label: 'Results',component: ResultsPage},
 ]
 
 const activeTab = ref('notes')

@@ -21,6 +21,9 @@ import EditAttendance from '../components/attendance/EditAttendance.vue'
 import AssignmentPage from '../components/lms/AssignmentPage.vue'
 import AssignmentBuilderPage from '../components/lms/AssignmentBuilderPage.vue'
 import ResultsPage from '../components/lms/ResultsPage.vue'
+import StudentAssignmentResponse from '../components/lms/StudentAssignmentResponse.vue'
+
+
 
 const routes = [
   {
@@ -129,6 +132,12 @@ const routes = [
         name: 'PerformancePage',
         component: PerformancePage,
       },
+      {
+        path: '/assignments/:assignmentId/students/:studentId',
+        name: 'StudentAssignmentResponse',
+        component: StudentAssignmentResponse
+      },
+
       {
         path: 'settings',
         name: 'Settings',

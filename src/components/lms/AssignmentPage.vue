@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import AssignmentDialog from './AssignmentDialog.vue'
-import { listAssignments, deleteAssignment } from '../../api/lms' // import API functions
+import { listAssignments, deleteAssignment } from '../../api/lms' 
 
 const assignments = ref([])
 const loading = ref(false)
@@ -48,7 +48,6 @@ const removeAssignment = async () => {
   }
 }
 
-// Navigate to Assignment Builder with metadata
 const openAssignmentBuilder = (metadata) => {
   router.push({
     name: 'AssignmentBuilder',
@@ -72,26 +71,25 @@ onMounted(fetchAssignments)
       </button>
     </div>
 
-  
-    <div
-  v-for="a in assignments"
-  :key="a.id"
-  class="bg-white border rounded-lg p-4 flex justify-between items-center"
->
-  <div>
-    <h3 class="font-semibold">{{ a.title }}</h3>
-    <p class="text-sm text-gray-600">{{ a.class_level }} · {{ a.subject }} · {{ a.stream }}</p>
-    <p class="text-sm text-gray-500">Due: {{ a.due_date }}</p>
-  </div>
+    <div class="flex flex-col space-y-4">
+      <div
+        v-for="a in assignments"
+        :key="a.id"
+        class="bg-white border rounded-lg p-4 flex justify-between items-center shadow-sm hover:shadow-md transition"
+      >
+        <div>
+          <h3 class="font-semibold">{{ a.title }}</h3>
+          <p class="text-sm text-gray-600">{{ a.class_level }} · {{ a.subject }} · {{ a.stream }}</p>
+          <p class="text-sm text-gray-500">Due: {{ a.due_date }}</p>
+        </div>
 
-  <button
-    @click="confirmDelete(a)"
-    class="px-3 py-1 text-sm bg-red-600 text-white rounded"
-  >
-    Delete
-  </button>
-
-
+        <button
+          @click="confirmDelete(a)"
+          class="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition"
+        >
+          Delete
+        </button>
+      </div>
     </div>
 
   
@@ -104,10 +102,10 @@ onMounted(fetchAssignments)
           Delete <strong>{{ assignmentToDelete.title }}</strong>?
         </p>
         <div class="flex justify-end space-x-3">
-          <button @click="cancelDelete" class="px-4 py-2 border rounded">Cancel</button>
+          <button @click="cancelDelete" class="px-4 py-2 border rounded hover:bg-gray-100 transition">Cancel</button>
           <button
             @click="removeAssignment"
-            class="px-4 py-2 bg-red-600 text-white rounded"
+            class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
           >
             Delete
           </button>
@@ -115,7 +113,6 @@ onMounted(fetchAssignments)
       </div>
     </div>
 
-   
     <AssignmentDialog
       v-if="showDialog"
       @close="showDialog = false"
@@ -123,3 +120,4 @@ onMounted(fetchAssignments)
     />
   </div>
 </template>
+

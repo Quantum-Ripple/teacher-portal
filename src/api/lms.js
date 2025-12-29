@@ -49,4 +49,48 @@ export const deleteAssignment = async (id) => {
   const response = await api.delete(`${API_URL}${id}/`)
   return response.data
 }
+export const getAssignmentResults = async (assignmentId) => {
+   const response = await api.get(`/assignments/${assignmentId}/results/`)
+    return response.data
+}
 
+export const getStudentAssignmentResponse = async (assignmentId, studentId) => {
+  const response = await api.get(
+    `/assignments/${assignmentId}/students/${studentId}/responses/`
+  )
+  return response.data
+}
+
+
+export const saveGrades = async (assignmentId, studentId, answersInput) => {
+  try {
+  
+    const answers = Array.isArray(answersInput)
+      ? answersInput
+      : answersInput?.answers || []
+
+    if (!answers.length) {
+      console.warn('No answers to save')
+    }
+
+    const payload = {
+      answers: answers.map(a => ({
+        question_id: a.question_id,
+        points_awarded: a.points_awarded ?? 0
+      }))
+    }
+
+    console.log('Saving grades payload:', payload)
+
+    const res = await api.patch(
+      `/assignments/${assignmentId}/students/${studentId}/grade/`,
+      payload
+    )
+
+    console.log('Save grades response:', res.data)
+    return res.data
+  } catch (err) {
+    console.error('Error saving grades:', err)
+    throw err
+  }
+}

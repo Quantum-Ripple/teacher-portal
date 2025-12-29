@@ -21,7 +21,6 @@ const form = reactive({
   due_date: ''
 })
 
-// Emit metadata and navigate to Assignment Builder page
 const goToBuilder = () => {
   emit('continue', {
     title: form.title,
