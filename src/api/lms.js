@@ -1,4 +1,4 @@
-import api from './Axios';
+import api from './axios';
 
 const NOTES_BASE = '/notes/';
 
